@@ -1,0 +1,31 @@
+table, td,th {
+    border-bottom: 1px solid;
+  }
+  table{
+    background-color: whitesmoke;
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+  h1{
+    text-align: center;
+    margin: auto;
+    margin-bottom: 13px;
+  }
+ 
+  /* .Carytype{
+    background-color: whitesmoke ; 
+    width: 45%;
+    height: 100%;
+    padding-top: 5px; 
+    padding-bottom: 5px;  
+    max-width: 450px;
+    margin-left: 30px;
+    margin-bottom: 15px;   
+   } */
+   .displaylist{
+    max-width: 30%;
+    margin-left: 15%;
+    margin-bottom: 25px;
+   }

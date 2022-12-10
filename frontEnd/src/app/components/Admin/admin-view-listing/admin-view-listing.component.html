@@ -1,0 +1,89 @@
+
+<br/>
+<mat-card class ='adds' >
+  <h1>All listings</h1>
+  <h2>Welcome {{LoginName}}</h2>
+  </mat-card>
+<mat-card *ngFor="let list of ListingsOutput | async" class="displaylist">
+
+  <p><b>Listing Title:</b> {{list.listing_title}}</p>
+  <p><b>Description:</b> {{list.description}}</p>
+  <p><b>Address:</b> {{list.street}}</p>
+  <p><b>City: </b> {{list.city}} monthly</p>
+  <p><b>Price:</b> ${{list.price}}</p>
+  <p><b>email:</b> {{list.email}}</p>
+  <p><b>Lister Username:</b> {{list.username}}</p>
+  <p><b>Postal Code:</b> {{list.postal_code}}</p>
+</mat-card>
+
+<!-- <table class="mat-elevation-z8">
+    
+      <tr>
+        <th  >Listing Title</th>
+        <th >Description</th>
+        <th >Street</th>
+        <th >City</th>
+        <th >Price</th>
+        <th >email</th>
+        <th >Username</th>
+        <th >Postal Code</th>
+      </tr>
+    
+    
+      <tr *ngFor="let list of ListingsOutput | async">
+        <td >{{list.listing_title}}</td>
+        <td>{{list.description}}</td>
+        <td>{{list.street}}</td>
+        <td>{{list.city}}</td>
+        <td>${{list.price}}</td>
+        <td>{{list.email}}</td>
+        <td>{{list.username}}</td>
+        <td>{{list.postal_code}}</td>
+      </tr>
+  </table>
+<br/> -->
+
+<!-- <table mat-table  class="mat-elevation-z8">
+
+  
+    <ng-container matColumnDef="Title">
+      <th mat-header-cell *matHeaderCellDef>Listing Title</th>
+      <td mat-cell *matCellDef="let element"> {{element.listing_title}} </td>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="Description">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="Street">
+      <th mat-header-cell *matHeaderCellDef> Weight </th>
+      <td mat-cell *matCellDef="let element"> {{element.street}} </td>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="City">
+      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+      <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Price">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Email">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Username">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Postal_code">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.postal_code}} </td>
+      </ng-container>
+      
+  </table> -->
+  

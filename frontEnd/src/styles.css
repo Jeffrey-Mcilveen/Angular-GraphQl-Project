@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(175, 251, 251)  }
+.entry{
+    background-color: whitesmoke ; 
+    /* width: 45%; */
+    padding-top: 5px; 
+    padding-bottom: 5px;  
+    max-width: 450px;
+    margin-left: 30px;
+    margin-bottom: 15px;   
+   }
+   .background{
+    width: 100%;
+    background-color: rgb(175, 251, 251);
+}
+.book{
+    padding-top: 5px; 
+    padding-bottom: 5px;  
+    max-width: 500px;
+    margin-left: 30px;
+    margin-bottom: 15px; 
+}
+.adds{
+    max-width: 30%;
+    margin-left: 15%;
+    margin-bottom: 25px;
+    background-color: white
+  }
+  .displaylist{
+    max-width: 30%;
+    margin-left: 15%;
+    margin-bottom: 25px;
+   }

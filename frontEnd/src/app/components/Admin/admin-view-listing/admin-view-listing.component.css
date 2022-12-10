@@ -1,0 +1,14 @@
+table, td,th {
+    border-bottom: 1px solid;
+  }
+  table{
+    background-color: whitesmoke;
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+  /* h1{
+    text-align: center;
+    margin: auto;
+  } */

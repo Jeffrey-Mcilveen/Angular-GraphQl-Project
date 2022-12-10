@@ -1,0 +1,25 @@
+<br/>
+
+    <mat-card class="entry" style="margin-left: 70px;">
+        <h2>Search by City</h2>
+        <form [formGroup]="getCityForm" (ngSubmit)="onSubmitCity(getCityForm.value)">
+            <p>
+                <label for="cities"><h4> Search By City</h4> </label>
+                <input type="text" id="cities" name="cities" formControlName="cities">
+            </p>
+            <button mat-raised-button color="primary" type="submit">Search</button>
+        </form>
+        <br/><p>{{errorsCity}}</p>
+        <mat-card *ngFor="let list of cityOutPut" class="book">
+            <p><b>Listing title:</b> {{list.listing_title}}</p>
+            <p><b>Description:</b> {{list.description}}</p>
+            <p><b>Street:</b> {{list.street}}</p>
+            <p><b>City:</b> {{list.city}}</p>
+            <p><b>Price:</b> {{list.price}}</p>
+            <p><b>Email:</b> {{list.email}}</p>
+            <p><b>Username:</b> {{list.username}}</p>
+            <p><b>Postal_code:</b> {{list.postal_code}}</p>
+            <br>
+        </mat-card>
+
+    </mat-card>

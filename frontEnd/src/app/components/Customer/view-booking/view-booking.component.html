@@ -1,0 +1,17 @@
+<br/>
+<mat-card class="adds">
+    <h1>Booking List</h1>
+<!-- <h3>Welcome {{LoginName}}</h3> -->
+<h2>please review all bookings below</h2>
+</mat-card>
+<mat-card class="book displaylist" *ngFor="let list of BookingOutput | async" >
+    <mat-card-content><b>Listing id:</b> {{list.listing_id}}</mat-card-content>
+    <!-- <mat-card-content>Looking id: {{list.id}}</mat-card-content> -->
+    
+    <mat-card-content><b>Date Booked:</b> {{DateAjustor(list.booking_date)}}</mat-card-content>
+    <mat-card-content><b>Booking start time:</b> {{DateAjustor(list.booking_start)}}</mat-card-content>
+    <mat-card-content><b>Booking end time:</b> {{DateAjustor(list.booking_end)}}</mat-card-content>
+    <mat-card-content><b>Booked by:</b> {{list.username}}</mat-card-content>
+    <br>
+</mat-card>
+

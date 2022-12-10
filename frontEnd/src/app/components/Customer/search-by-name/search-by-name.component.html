@@ -1,0 +1,24 @@
+<br/>
+<mat-card class="entry">
+    <h2>Search by Lister</h2>
+    <form  [formGroup]="getUsernameForm" (ngSubmit)="getUsername(getUsernameForm.value.username)" >
+        <p>
+            <label for="name"><h4>Username </h4></label>
+            <input type="text" id="name" name="username" formControlName="username">
+        </p>
+        
+            <button button mat-raised-button color="primary" type="submit">Search</button>
+          <p>{{errorsUser}}</p><mat-card *ngFor="let list of userOutput" class="book">
+            <p><b>Listing title:</b> {{list.listing_title}}</p>
+            <p><b>Description:</b> {{list.description}}</p>
+            <p><b>Street:</b> {{list.street}}</p>
+            <p><b>City:</b> {{list.city}}</p>
+            <p><b>Price:</b> {{list.price}}</p>
+            <p><b>Email:</b> {{list.email}}</p>
+            <p><b>Username:</b> {{list.username}}</p>
+            <p><b>Postal code:</b> {{list.postal_code}}</p>
+            <br>
+          </mat-card>
+    </form>
+
+</mat-card>

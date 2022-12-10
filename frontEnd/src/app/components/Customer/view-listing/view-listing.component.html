@@ -1,0 +1,22 @@
+
+
+<div><br/>
+  <mat-card class="adds">
+    <h1>Hello  {{LoginName}}</h1>
+    <p>read all about our listing and book the one that interests you!</p>
+  </mat-card>
+
+<br/>
+<mat-card *ngFor="let list of ListingsOutput | async" class="displaylist">
+  <p><b>Listing Title:</b> {{list.id}}</p>
+  <p><b>Listing Title:</b> {{list.listing_title}}</p>
+  <p><b>Description:</b> {{list.description}}</p>
+  <p><b>Address:</b> {{list.street}}</p>
+  <p><b>City: </b> {{list.city}} monthly</p>
+  <p><b>Price:</b> ${{list.price}}</p>
+  <p><b>Email:</b> {{list.email}}</p>
+  <p><b>Lister Username:</b> {{list.username}}</p>
+  <p><b>Postal Code:</b> {{list.postal_code}}</p>
+  <button mat-raised-button color="primary" (click)="goto(list.id)">Create Booking</button>
+</mat-card>
+</div>

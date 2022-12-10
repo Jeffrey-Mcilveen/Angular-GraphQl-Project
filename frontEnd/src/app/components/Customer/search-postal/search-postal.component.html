@@ -1,0 +1,24 @@
+<br/>
+<mat-card class="entry">
+    <form  [formGroup]="getPostalForm" (ngSubmit)="getPostal(getPostalForm.value.postal_code)">
+        <p>
+            <label for="postal_code"> <h4>Search By Postal Code</h4> </label>
+            <input type="text" id="postal_code" name="postal_code" formControlName="postal_code">
+        </p>
+        <p>
+            <button button mat-raised-button color="primary" type="submit">Postal Code Search</button>
+          </p>
+          <p>{{errorsPostal}}</p>
+          <mat-card *ngFor="let list of postalOutput" class="book">
+            <p><b>Listing title:</b> {{list.listing_title}}</p>
+            <p><b>Description:</b> {{list.description}}</p>
+            <p><b>Street:</b> {{list.street}}</p>
+            <p><b>City:</b> {{list.city}}</p>
+            <p><b>Price:</b> {{list.price}}</p>
+            <p><b>Email:</b> {{list.email}}</p>
+            <p><b>Username:</b> {{list.username}}</p>
+            <p><b>Postal code:</b> {{list.postal_code}}</p>
+            <br>
+          </mat-card>
+    </form>
+  </mat-card>
