@@ -18,11 +18,12 @@ export class CreatebookingComponent implements OnInit {
   LoginName!: String;
   List_ID!: String;
   response:any;
+  username!: string;
   
   constructor(private apolloClient: Apollo,private activeRoute: ActivatedRoute, private router: Router) {
    }
    bookingform = new FormGroup({
-    booking_id: new FormControl(),
+    // booking_id: new FormControl(),
     booking_start: new FormControl(),
     booking_end: new FormControl()
 
@@ -38,10 +39,10 @@ export class CreatebookingComponent implements OnInit {
     //     return resp.data.getAdminListings
     //   })
     // )
-    this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
+    let name = localStorage.getItem("username")
+    this.username = name == null ? 'Guest': name
+    // this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
     this.List_ID = this.activeRoute.snapshot.queryParamMap.get('list_id')!
-    console.log("test on init")
-    console.log(this.LoginName)
   }
 
   // private GET_LISTING = gql`
@@ -81,19 +82,11 @@ export class CreatebookingComponent implements OnInit {
   }
   `
   onSubmit(input:any){
-    console.log("FORMDATA:" + input)
-    console.log("FORMDATA start:" + this.bookingform.value.booking_start)
-    console.log("FORMDATA end:" + this.bookingform.value.booking_end)
-    console.log("this here:" + typeof(this.bookingform.value.booking_end))
     let listIN = this.List_ID
     let bookID = this.bookingform.value.booking_id
     let bookstart = this.bookingform.value.booking_start
     let bookend = this.bookingform.value.booking_end
-    let inputuser = this.LoginName
-    console.log(this.bookingform.value)
-    console.log(listIN)
-    console.log(inputuser)
-    //console.log(bookstart)
+    let inputuser = this.username
     console.log(this.bookingform.value.booking_start)
     this.AddBooking(listIN,bookID,bookstart,bookend,inputuser)
   }
@@ -112,9 +105,11 @@ export class CreatebookingComponent implements OnInit {
       }
     }).subscribe(resp=>{
       console.log(resp)
+      alert(`Booking added`)
+      this.router.navigate(['/customLand'] )
       this.response = `Booking added`
       this.bookingform.reset()
-      console.log("Booking submitted")
+      
     })
   }
 

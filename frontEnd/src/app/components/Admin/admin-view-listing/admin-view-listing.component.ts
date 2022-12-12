@@ -13,11 +13,12 @@ export class AdminViewListingComponent implements OnInit {
 
   dataList: any[] = []
   ListingsOutput = new Observable<any>();
-  LoginName!: String;
+  username!: any;
   constructor(private apolloClient: Apollo, private getEndPoint: HttpClient, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
+    let name = localStorage.getItem("username")
+    this.username = name == null ? 'Guest': name
     this.ListingsOutput = this.apolloClient.watchQuery<any>({
        query: this.GET_LISTING
      }).valueChanges.pipe(

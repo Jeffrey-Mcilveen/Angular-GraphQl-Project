@@ -10,20 +10,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SearchLandingComponent implements OnInit {
 
   constructor(private apolloClient: Apollo,private activeRoute: ActivatedRoute, private router: Router) { }
-  LoginName!: String
+  
+  username!: string;
+  // LoginName!: String
+
   ngOnInit(): void {
-    this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
-    console.log(this.LoginName)
+    let name = localStorage.getItem("username")
+    this.username = name == null ? 'Guest': name
+    // this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
+    // console.log(this.LoginName)
     
   }
   goto(){
-    this.router.navigate(['/searchCity'],{queryParams: {name: this.LoginName}})
+    this.router.navigate(['/searchCity'])
   }
   goto2(){
-    this.router.navigate(['/searchUser'],{queryParams: {name: this.LoginName}})
+    this.router.navigate(['/searchUser'])
   }
   goto3(){
-    this.router.navigate(['/Postal'],{queryParams: {name: this.LoginName}})
+    this.router.navigate(['/Postal'])
   }
 
 }

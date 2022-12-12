@@ -1,15 +1,11 @@
-<br/>
+<app-cust-nav></app-cust-nav><br/>
 <mat-card style="margin-top: 16%;" class="entry create container">
-    <h1>Welcome {{LoginName}}</h1>
-    <h1>listing ID: {{List_ID}}</h1>
+    <h1>Welcome {{username}}</h1>
+    <h1>Listing ID: {{List_ID}}</h1>
 
     
     <form [formGroup]="bookingform" (ngSubmit)="onSubmit(bookingform)">
     
-        <!-- <p>
-        <label for="booking_id">Booking ID number </label>
-        <input type="text" id="booking_id" name="booking_id" formControlName="booking_id">
-    </p> -->
     <p>
         <label for="booking_start">Booking Start  </label>
         <input type="date" id="booking_start" name="booking_start" formControlName="booking_start" >

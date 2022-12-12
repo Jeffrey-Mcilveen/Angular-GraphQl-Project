@@ -13,12 +13,14 @@ export class ViewListingComponent implements OnInit {
 
   dataList: any[] = []
   ListingsOutput = new Observable<any>();
-  LoginName!: String;
+  username!: string;
   ListID!: String;
   constructor(private apolloClient: Apollo, private getEndPoint: HttpClient, private activeRoute: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
-    this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
+    let name = localStorage.getItem("username")
+    this.username = name == null ? 'Guest': name
+    // this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
     this.ListingsOutput = this.apolloClient.watchQuery<any>({
        query: this.GET_LISTING
      }).valueChanges.pipe(
@@ -46,7 +48,6 @@ export class ViewListingComponent implements OnInit {
   query {
     getAdminListings{
       id
-      # listing_id
       listing_title
       description
       street
@@ -62,16 +63,6 @@ export class ViewListingComponent implements OnInit {
       console.log("active")
       this.apolloClient.watchQuery<any>({
         query: this.GET_LISTING
-        // variables:{
-        //   listing_title,
-        //   description,
-        //   street,
-        //   city,
-        //   price,
-        //   email,
-        //   username,
-        //   postal_code,
-        // }
       }).valueChanges.subscribe(resp=>{
         console.log(resp)
       })
@@ -89,7 +80,7 @@ export class ViewListingComponent implements OnInit {
       //   this.ListID = resp.data.getlistingbyID.listing_id
       // })
       this.ListID = input
-      this.router.navigate(['/cBooking'],{queryParams: {name: this.LoginName, list_id: this.ListID  }})
+      this.router.navigate(['/cBooking'],{queryParams: {list_id: this.ListID  }})
     }
 
 }

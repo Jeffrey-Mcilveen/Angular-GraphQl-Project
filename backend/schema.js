@@ -40,7 +40,6 @@ exports.typeDefs = gql `
         getAdminlistingsbyUsername(userName:String):[listing]
         login(userName: String!, password: String!):[String]
         getlistingbyID(listing_id:String!):listing
-        getaDate(input: String!):userbooking
     }
     type Mutation {
         addUser (

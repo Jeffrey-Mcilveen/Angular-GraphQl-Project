@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { Apollo,gql } from 'apollo-angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -49,7 +50,7 @@ export class SignUpComponent implements OnInit {
     
 
 
-  constructor(private apolloClient: Apollo) { }
+  constructor(private apolloClient: Apollo, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -102,6 +103,8 @@ export class SignUpComponent implements OnInit {
       }
     }).subscribe(resp =>{
       console.log(resp)
+      alert(`Signed up, you've all set ${USER}`)
+      this.router.navigate(['/login'] )
       this.response = `Signed up, you've all set ${USER}`
     }, error =>{
       console.log(error)

@@ -1,7 +1,8 @@
-<br/>
+<!-- <br/> -->
+<app-cust-nav></app-cust-nav>
 <mat-card class="entry Cbox">
-    <h1>Welcome : {{LoginName}} </h1>
-    <h2>What would you like to do?</h2>
+    <h1>Welcome : {{username}} </h1>
+    <h2>What would you like to do, {{username}}?</h2>
     <div class="Cclass">
     <button mat-raised-button color="primary" (click)="goto2()">View Bookings</button>
     <button mat-raised-button color="primary" (click)="goto()">Create Booking</button>

@@ -1,8 +1,8 @@
-<br/>
+<app-cust-nav></app-cust-nav><br/>
 <mat-card class="entry">
     <form  [formGroup]="getPostalForm" (ngSubmit)="getPostal(getPostalForm.value.postal_code)">
         <p>
-            <label for="postal_code"> <h4>Search By Postal Code</h4> </label>
+            <label for="postal_code"> <h2>Search By Postal Code</h2> </label>
             <input type="text" id="postal_code" name="postal_code" formControlName="postal_code">
         </p>
         <p>

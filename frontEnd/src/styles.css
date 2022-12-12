@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(175, 251, 251)  }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color:rgb(128, 128, 128)  }
 .entry{
     background-color: whitesmoke ; 
     /* width: 45%; */
@@ -13,7 +13,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
    }
    .background{
     width: 100%;
-    background-color: rgb(175, 251, 251);
+    /* background-color: rgb(175, 251, 251); */
 }
 .book{
     padding-top: 5px; 

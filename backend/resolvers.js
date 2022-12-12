@@ -83,14 +83,6 @@ exports.resolvers ={
         getlistingbyID: async(parent,args)=>{
             console.log(args)
             return listing.findOne({listing_id: args.listing_id})
-        },
-        getaDate: async(parent,args)=>{
-            console.log("input:" +args.input)
-            const rDate = userbooking.find({booking_start: args.input})
-            
-            // const wDate = JSON.stringify(rDate)
-            console.log(rDate)
-            return rDate
         }
         
     },

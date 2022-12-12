@@ -1,8 +1,8 @@
 
 
-<div><br/>
+<app-cust-nav></app-cust-nav><br/><br/>
   <mat-card class="adds">
-    <h1>Hello  {{LoginName}}</h1>
+    <h1>Hello  {{username}}</h1>
     <p>read all about our listing and book the one that interests you!</p>
   </mat-card>
 
@@ -19,4 +19,3 @@
   <p><b>Postal Code:</b> {{list.postal_code}}</p>
   <button mat-raised-button color="primary" (click)="goto(list.id)">Create Booking</button>
 </mat-card>
-</div>

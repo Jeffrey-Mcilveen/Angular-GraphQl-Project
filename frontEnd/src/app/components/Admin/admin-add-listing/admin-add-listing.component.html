@@ -2,42 +2,38 @@
 
 
 
-
+<app-admin-nav></app-admin-nav>
 <mat-card class="entry Cbox container">
 <form [formGroup]="listingForm" (ngSubmit)="onSubmit(listingForm.value)">
-  <h3>{{LoginName}}</h3>
+  <h3>{{username}}</h3>
   <h1>Add new Listing</h1>
-    <!-- <p>
-        <label for="listing_id">Listing ID </label>
-        <input type="text" id="listing_id" name="listing_id" formControlName="listing_id">
-    </p> -->
         <p>  
         <label for="listing_title">Listing Title </label>
-        <input type="text" id="listing_title" name="listing_title" formControlName="listing_title">
+        <input matInput  type="text" id="listing_title" name="listing_title" formControlName="listing_title" autocomplete="off">
     
         <p>
-        <label for="description">Description </label>
-        <textarea id="description" name="description" rows="2"  formControlName="description"></textarea>
+        <label  for="description">Description </label>
+        <textarea matInput  id="description" name="description" rows="2"  formControlName="description" autocomplete="off"></textarea>
         </p>
         <p>
         <label for="street">Street </label>
-        <input type="text" id="street" name="street" formControlName="street">
+        <input matInput type="text" id="street" name="street" formControlName="street" autocomplete="off">
         </p>
         <p>
         <label for="city">City </label>
-        <input type="text" id="city" name="city" formControlName="city">
+        <input type="text" id="city" name="city" formControlName="city" autocomplete="off">
         </p>
         <p>
             <label for="postal_code">Postal code </label>
-            <input type="text" id="postal_code" name="postal_code" formControlName="postal_code">
+            <input type="text" id="postal_code" name="postal_code" formControlName="postal_code" autocomplete="off">
           </p>
           <p>
             <label for="price">Price </label>
-            <input type="number" id="price" name="price" formControlName="price">
+            <input type="number" id="price" name="price" formControlName="price" autocomplete="off">
           </p>
           <p>
             <label for="email">E-mail </label>
-            <input type="text" id="email" name="email" formControlName="email">
+            <input type="text" id="email" name="email" formControlName="email" autocomplete="off">
           </p>
           <p>
             <button type="submit">Submit Listing</button>

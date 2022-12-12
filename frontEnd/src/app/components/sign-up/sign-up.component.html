@@ -4,23 +4,23 @@
   <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
   <p>
       <label for="user_Name">Username </label>
-      <input type="text" id="user_Name" name="user_Name" formControlName="user_Name" value="threepo">
+      <input type="text" id="user_Name" name="user_Name" formControlName="user_Name" value="threepo" autocomplete="off">
   </p>
       <p>  
       <label for="first_Name">First name </label>
-      <input type="text" id="first_Name" name="first_Name" formControlName="first_Name">
+      <input type="text" id="first_Name" name="first_Name" formControlName="first_Name" autocomplete="off">
   
       <p>
       <label for="last_Name">Last name </label>
-      <input type="text" id="last_Name" name="last_Name" formControlName="last_Name">
+      <input type="text" id="last_Name" name="last_Name" formControlName="last_Name" autocomplete="off">
       </p>
       <p>
       <label for="pass_word">Password </label>
-      <input type="text" id="pass_word" name="pass_word" formControlName="pass_word">
+      <input type="password" id="pass_word" name="pass_word" formControlName="pass_word" autocomplete="off">
       </p>
       <p>
       <label for="e_mail">Email </label>
-      <input type="text" id="e_mail" name="e_mail" formControlName="e_mail">
+      <input type="text" id="e_mail" name="e_mail" formControlName="e_mail" autocomplete="off">
       </p>
       <p>
           <label for="User">Type </label>
@@ -31,10 +31,9 @@
           </select>
         </p>
   
-        <p>
-          <button button button mat-raised-button color="primary" type="submit">Join up</button>
-        </p>
-        <p>{{response}}</p>
+        
+          <button button button mat-raised-button color="primary"  type="submit" style="float: left">Join up</button>
   </form>
   <h2 style="float:right"><a [routerLink]="['/login']" >Back to Login</a></h2>
+  
   </mat-card>

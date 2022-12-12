@@ -10,7 +10,9 @@ Router
 })
 export class LoginComponent implements OnInit {
 
-  loginKeyAdmin: string = 'USERNAME'
+  //loginKeyAdmin: string = 'USERNAME'
+  //loginKeyCustomer: string = 'USERNAME'
+  
 
   loginForm = new FormGroup({
   user_Name: new FormControl(),
@@ -27,6 +29,7 @@ export class LoginComponent implements OnInit {
  
   
   Login(user_Name:any,pass_word:any ){
+    let username = user_Name
     console.log("Login input are " + user_Name+ " and " + pass_word)
     this.apolloClient.watchQuery<any>({
       query: this.CHECKUSER,
@@ -43,13 +46,17 @@ export class LoginComponent implements OnInit {
         console.log(resp.data.login)
         if(resp.data.login[2] == 'admin'){
           console.log("is admin")
-          const input = resp.data.login[0]
-          //localStorage.setItem(this.loginKeyAdmin, `${resp.data.login[0]}`)
-          this.router.navigate(['/adminLand'],{queryParams: {name: input}} )
+          //const input = resp.data.login[0] // ,{queryParams: {name: input}}
+          localStorage.setItem('isValidAdmin',"true")
+          localStorage.setItem('username', username)
+          this.router.navigate(['/adminLand'] )
         }else{
           console.log("is customer")
           const input = resp.data.login[0]
-          this.router.navigate(['/customLand'], {queryParams:{name: input}})
+          //console.log(localStorage)
+          localStorage.setItem('isValidCustomer', "true")
+          localStorage.setItem('username', username)
+          this.router.navigate(['/customLand'])
         }
       }
 

@@ -8,19 +8,23 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AdminLandingComponent implements OnInit {
 
-  LoginName!: String
+  //LoginName!: String
+  username!: string;
   constructor(private apolloClient: Apollo,private activeRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
+    let name = localStorage.getItem("username")
+    this.username = name == null ? 'Guest': name
+    //this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
     console.log("test on init")
-    console.log(this.LoginName)
+    //console.log(this.LoginName)
   }
+  //,{queryParams: {name: this.LoginName}}
   goto(){
-    this.router.navigate(['/addList'],{queryParams: {name: this.LoginName}})
+    this.router.navigate(['/addList'])
   }
   goto2(){
-    this.router.navigate(['/adminListView'],{queryParams: {name: this.LoginName}})
+    this.router.navigate(['/adminListView'])
   }
 
 }

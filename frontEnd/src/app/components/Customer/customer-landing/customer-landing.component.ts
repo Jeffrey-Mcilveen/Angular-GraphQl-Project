@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo,gql } from 'apollo-angular';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CustNavComponent } from '../../Navs/cust-nav/cust-nav.component';
 
 @Component({
   selector: 'app-customer-landing',
@@ -10,12 +11,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CustomerLandingComponent implements OnInit {
   
   LoginName!: String
+  username!: string;
   constructor(private apolloClient: Apollo,private activeRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
-    console.log("test on init")
-    console.log(this.LoginName)
+    let name = localStorage.getItem("username")
+    this.username = name == null ? 'Guest': name
+    // console.log(this.username)
+    // this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
+    // console.log("test on init")
+    // console.log(this.LoginName)
     
   }
   goto(){

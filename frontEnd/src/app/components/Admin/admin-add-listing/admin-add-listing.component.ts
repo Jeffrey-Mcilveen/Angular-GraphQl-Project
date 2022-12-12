@@ -10,8 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AdminAddListingComponent implements OnInit {
 
-  LoginName!: String;
-  response:any
+  response:any;
+  username!: string;
+
   constructor(private apolloClient: Apollo,private activeRoute: ActivatedRoute, private router: Router) { }
 
   listingForm = new FormGroup({
@@ -53,21 +54,19 @@ export class AdminAddListingComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.LoginName = this.activeRoute.snapshot.queryParamMap.get('name')!
-    console.log("test on init")
-    console.log(this.LoginName)
+    let name = localStorage.getItem("username")
+    this.username = name == null ? 'Guest': name
   }
   
 
   onSubmit(input: any){
     console.log(input)
-    console.log(this.LoginName)
+  
 
 
     this.apolloClient.mutate({
       mutation: this.NEWLISTING,
       variables:{
-        // List_id: input.listing_id,
         list_title: input.listing_title,
         descrip: input.description,
         Streetinput: input.street,
@@ -75,10 +74,12 @@ export class AdminAddListingComponent implements OnInit {
         postal__code: input.postal_code,
         prices: input.price,
         E_mail: input.email,
-        userN: this.LoginName
+        userN: this.username
       }
     }).subscribe(resp=>{
       console.log(resp)
+      alert(`Listing ${input.listing_title} added`)
+      this.router.navigate(['/adminLand'] )
       this.response = `Listing ${input.listing_title} added`
       this.listingForm.reset()
       console.log("listing submitted")
